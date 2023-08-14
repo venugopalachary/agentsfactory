@@ -4,10 +4,10 @@
   <title>AgentsFactory</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bootstrap Static Navbar</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 
   <style>
     
@@ -16,8 +16,8 @@
       border-radius: 10px;
       border: 1px solid #DDD;
       background: #FFF;
-      width: 300px;
-      height: 350px;
+      width: 320px;
+      height: 380px;
       margin: 25px;
     }
 
@@ -49,48 +49,394 @@
       color: white;
     }
 
+   
+
+   * {
+  border: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: rgb(255, 255, 255) ;
+  font-family: Lato, Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  text-decoration: none;
+}
+
+
+/*======================================================
+                          Navbar
+  ======================================================*/
+#navbar {
+  background: white;
+  color: rgb(13, 26, 38);
+  position: fixed;
+  top: 0;
+  height: 60px;
+  line-height: 60px;
+  width: 100vw;
+  z-index: 10;
+}
+
+.nav-wrapper {
+  margin: auto;
+  text-align: center;
+  width: 70%;
+} @media(max-width: 768px) {
+    .nav-wrapper {
+      width: 90%;
+    }
+  } @media(max-width: 638px) {
+      .nav-wrapper {
+        width: 100%;
+      }
+    } 
+
+
+.logo {
+  float: left;
+  margin-left: 28px;
+  font-size: 1.5em;
+  height: 30px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+} @media(max-width: 768px) {
+    .logo {
+/*       margin-left: 5px; */
+    }
+  }
+
+#navbar ul {
+  display: inline-block;
+  float: right;
+  list-style: none;
+  /* margin-right: 14px; */
+  margin-top: -2px;
+  text-align: right;
+  transition: transform 0.5s ease-out;
+  -webkit-transition: transform 0.5s ease-out;
+} @media(max-width: 640px) {
+    #navbar ul {
+      display: none;
+    }
+  } @media(orientation: landscape) {
+      #navbar ul {
+        display: inline-block;
+      }
+    }
+
+#navbar li {
+  display: inline-block;
+}
+
+#navbar li a {
+  color: rgb(13, 26, 38);
+  display: block;
+  font-size: 0.7em;
+  height: 50px;
+  letter-spacing: 1px;
+  margin: 0 20px;
+  padding: 0 4px;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+}
+
+#navbar li a:hover {
+  /* border-bottom: 1px solid rgb(28, 121, 184); */
+  color: rgb(28, 121, 184);
+  transition: all 1s ease;
+  -webkit-transition: all 1s ease;
+}
+
+/* Animated Bottom Line */
+#navbar li a:before, #navbar li a:after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 1px;
+  bottom: -1px;
+  background: rgb(13, 26, 38);
+}
+
+#navbar li a:before {
+  left: 0;
+  transition: 0.5s;
+}
+
+#navbar li a:after {
+  background: rgb(13, 26, 38);
+  right: 0;
+  /* transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1); */
+}
+
+#navbar li a:hover:before {
+  background: rgb(13, 26, 38);
+  width: 100%;
+  transition: width 0.5s cubic-bezier((0.22, 0.61, 0.36, 1));
+}
+
+#navbar li a:hover:after {
+  background: transparent;
+  width: 100%;
+  /* transition: 0s; */
+}
+
+
+
+/*======================================================
+                    Mobile Menu Menu Icon
+  ======================================================*/
+@media(max-width: 640px) {
+  .menuIcon {
+    cursor: pointer;
+    display: block;
+    position: fixed;
+    right: 15px;
+    top: 20px;
+    height: 23px;
+    width: 27px;
+    z-index: 12;
+  }
+
+  /* Icon Bars */
+  .icon-bars {
+    background: rgb(13, 26, 38);
+    position: absolute;
+    left: 1px;
+    top: 45%;
+    height: 2px;
+    width: 20px;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  } 
+
+  .icon-bars::before {
+    background: rgb(13, 26, 38);
+    content: '';
+    position: absolute;
+    left: 0;
+    top: -8px;
+    height: 2px;
+    width: 20px;
+/*     -webkit-transition: top 0.2s ease 0.3s;
+    transition: top 0.2s ease 0.3s; */
+    -webkit-transition: 0.3s width 0.4s;
+    transition: 0.3s width 0.4s;
+  }
+
+  .icon-bars::after {
+    margin-top: 0px;
+    background: rgb(13, 26, 38);
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    height: 2px;
+    width: 20px;
+/*     -webkit-transition: top 0.2s ease 0.3s;
+    transition: top 0.2s ease 0.3s; */
+    -webkit-transition: 0.3s width 0.4s;
+    transition: 0.3s width 0.4s;
+  }
+
+  /* Bars Shadows */
+  .icon-bars.overlay {
+    background: rgb(97, 114, 129);
+    background: rgb(183, 199, 211);
+    width: 20px;
+    animation: middleBar 3s infinite 0.5s;
+    -webkit-animation: middleBar 3s infinite 0.5s;
+  } @keyframes middleBar {
+      0% {width: 0px}
+      50% {width: 20px}
+      100% {width: 0px}
+    } @-webkit-keyframes middleBar {
+        0% {width: 0px}
+        50% {width: 20px}
+        100% {width: 0px}
+      }
+
+  .icon-bars.overlay::before {
+    background: rgb(97, 114, 129);
+    background: rgb(183, 199, 211);
+    width: 10px;
+    animation: topBar 3s infinite 0.2s;
+    -webkit-animation: topBar 3s infinite 0s;
+  } @keyframes topBar {
+      0% {width: 0px}
+      50% {width: 10px}
+      100% {width: 0px}
+    } @-webkit-keyframes topBar {
+        0% {width: 0px}
+        50% {width: 10px}
+        100% {width: 0px}
+      }
+
+  .icon-bars.overlay::after {
+    background: rgb(97, 114, 129);
+    background: rgb(183, 199, 211);
+    width: 15px;
+    animation: bottomBar 3s infinite 1s;
+    -webkit-animation: bottomBar 3s infinite 1s;
+  } @keyframes bottomBar {
+      0% {width: 0px}
+      50% {width: 15px}
+      100% {width: 0px}
+    } @-webkit-keyframes bottomBar {
+        0% {width: 0px}
+        50% {width: 15px}
+        100% {width: 0px}
+      }
+
+
+  /* Toggle Menu Icon */
+  .menuIcon.toggle .icon-bars {
+    top: 5px;
+    transform: translate3d(0, 5px, 0) rotate(135deg);
+    transition-delay: 0.1s;
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .menuIcon.toggle .icon-bars::before {
+    top: 0;
+    transition-delay: 0.1s;
+    opacity: 0;
+  }
+
+  .menuIcon.toggle .icon-bars::after {
+    top: 10px;
+    transform: translate3d(0, -10px, 0) rotate(-270deg);
+    transition-delay: 0.1s;
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .menuIcon.toggle .icon-bars.overlay {
+    width: 20px;
+    opacity: 0;
+    -webkit-transition: all 0s ease 0s;
+    transition: all 0s ease 0s;
+  }
+}
+
+
+/*======================================================
+                   Responsive Mobile Menu 
+  ======================================================*/
+.overlay-menu {
+  background: lightblue;
+  color: rgb(13, 26, 38);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding-right: 15px;
+  transform: translateX(-100%);
+  width: 100vw;
+  height: 100vh;
+  -webkit-transition: transform 0.2s ease-out;
+  transition: transform 0.2s ease-out;
+}
+
+.overlay-menu ul, .overlay-menu li {
+  display: block;
+  position: relative;
+}
+
+.overlay-menu li a {
+  display: block;
+  font-size: 1.8em;
+  letter-spacing: 4px;
+/*   opacity: 0; */
+  padding: 10px 0;
+  text-align: right;
+  text-transform: uppercase;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+/*   -webkit-transition: 0.2s opacity 0.2s ease-out;
+  transition: 0.2s opacity 0.2s ease-out; */
+}
+
+.overlay-menu li a:hover,
+.overlay-menu li a:active {
+  color: rgb(28, 121, 184);
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+
+
+
 
     
   </style>
 </head>
 <body>
-<div class="m-4">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-           <!--  <a href="#" class="navbar-brand">AgentFactory</a> -->
-            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <div class="navbar-nav">
 
-             
-                    <a href="#" class="nav-item nav-link active"> <img src="assets/img/logo.png" width="150px" height="100px"></a>
-                    
-                </div>
-                <div class="navbar-nav ms-auto">
-                    <a href="#" class="nav-item nav-link">Home</a>
-                    <a href="#" class="nav-item nav-link">Contact</a>
-                    <a href="#" class="nav-item nav-link">Register Now</a>
-                </div>
-            </div>
-        </div>
-    </nav>
+
+
+
+
+<nav id="navbar" class="">
+  <div class="nav-wrapper">
+    <!-- Navbar Logo -->
+    <div class="logo">
+      <!-- Logo Placeholder for Illustration -->
+      <a href="#home"><img src="assets/img/logo.png" width="150px" height="100px" ></a>
+    </div>
+
+    <!-- Navbar Links -->
+    <ul id="menu">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#services">Contact</a></li>
+      <li><a href="#about">Register Now</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<!-- Menu Icon -->
+<div class="menuIcon">
+  <span class="icon icon-bars"></span>
+  <span class="icon icon-bars overlay"></span>
 </div>
 
 
+<div class="overlay-menu">
+  <ul id="menu">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">Contact</a></li>
+      <li><a href="#contact">Register Now</a></li>
+    </ul>
+</div>
+
+
+
 <!-- Hero Section -->
-<div class="container">
+<div class="container" style="margin-top:120px;">
   <div class="row">
+
     <div class="col-sm-6 col-md-6 col-lg-6">
       <h3>My Dear <br>
-          <span style="color: #62AC43;font-family: Poppins;font-size: 48px;font-style: normal;font-weight: 400;line-height: 100%;">Agent/Broker/Consultant</span>
+          <span style="color: #62AC43;font-family: Poppins;font-size: 32px;font-style: normal;font-weight: 400;line-height: 100%;">Agent/Broker/Consultant</span>
       </h3>
       <p style="color: #000;font-family: Abel;font-size: 24px;font-style: normal;font-weight: 400;line-height: normal;margin-top: 10px;">We salute you for sustaining till now in this highly challenging industry.</p>
       <p  style="margin-top:10px;">The Indian real estate sector is a vital component of the country's economy, contributing significantly to its growth and development. Real estate agents play a crucial role as intermediaries between property buyers and sellers, facilitating transactions and providing valuable guidance throughout the process. However, the Indian real estate industry faces several challenges that have a significant impact on the operations and success of real estate agents. </p>
     </div>
+
     <div class="col-sm-6 col-md-6 col-lg-6">
-      <img src="assets/img/map.svg" width="100%">
+      <img src="assets/img/map2.svg" width="100%">
     </div>
    
   </div>
@@ -101,11 +447,105 @@
 <!-- Services Section -->
 <div class="container">
 
-  <p style="color: #313131;text-align: center;font-family: Poppins;font-size: 50px;font-style: normal;font-weight: 400;line-height: 100%; /* 50px */letter-spacing: -3px;">Now let’s explore some of the key <br>problems faced by Indian real<br> estate agents and the strategies <br> to overcome them</p>
+  <p style="color: #313131;text-align: center;font-family: Poppins;font-size: 40px;font-style: normal;font-weight: 400;line-height: 100%; /* 50px */letter-spacing: -3px;">Now let’s explore some of the key <br>Challengess faced by Indian real<br> estate agents and the strategies <br> to overcome them</p>
       
       <br>
       <!-- First Row -->
       <div class="row">
+
+
+
+            <div class="col-sm-4 col-md-4 col-lg-4" >
+
+               <div class="card">
+
+                  <img src="assets/img/client.png" width="50px" height="50px" style="margin:20px;">
+
+                  <p style="color: #313131;font-family: Abel;font-size: 22px;font-style: normal;font-weight: 400;line-height: 100%;margin-top:20px;margin-left: 12px; /* 22px */">
+                  Client Expectations</p>
+                  
+                 
+                  <p style="color: #313131;font-family: Abel;font-size: 16px;font-style: normal;font-weight: 400;line-height: 100%;margin-top:20px;margin-left: 12px; /* 16px */"> <span style="color:blue;font-size:18px;">Challenges :-</span><br>
+                  Meeting diverse client expectations can be demanding </p>
+                  
+                  <p style="color: #828282;font-family: Abel;font-size: 16px;font-style: normal;font-weight: 400;line-height: 110%;margin-top:20px;margin-left: 12px; /* 17.6px */"><span style="color:green;font-size:18px;">Solution :-</span><br>
+                    We train you on effective communication, Understanding clients needs, Providing personalized services.
+                  </p>
+
+               </div>
+             
+            </div>
+
+
+
+             <div class="col-sm-4 col-md-4 col-lg-4" >
+
+                <div class="card">
+
+                  <img src="assets/img/negotiation.png" width="50px" height="50px" style="margin:20px;">
+
+                  <p style="color: #313131;font-family: Abel;font-size: 22px;font-style: normal;font-weight: 400;line-height: 100%;margin-top:20px;margin-left: 12px; /* 22px */">
+                  Negotiation Challenges</p>
+
+                  <p style="color: #313131;font-family: Abel;font-size: 16px;font-style: normal;font-weight: 400;line-height: 100%;margin-top:20px;margin-left: 12px; /* 16px */"><span style="color:blue;font-size:18px;">Challenges :-</span><br>
+                  Negotiating deals can be complex due to various factors like price, terms, and property condition </p>
+
+                  <p style="color: #828282;font-family: Abel;font-size: 16px;font-style: normal;font-weight: 400;line-height: 110%;margin-top:20px;margin-left: 12px; /* 17.6px */"><span style="color:green;font-size:18px;">Solution :-</span><br>
+                   Our Training on negotiation skills and understanding market dynamics will help you to achieve win-win outcomes
+                 </p>
+                </div>
+
+            </div>
+
+            <div class="col-sm-4 col-md-4 col-lg-4" >
+
+                <div class="card">
+
+                  <img src="assets/img/competition.png" width="50px" height="50px" style="margin:20px;">
+
+                  <p style="color: #313131;font-family: Abel;font-size: 22px;font-style: normal;font-weight: 400;line-height: 100%;margin-top:20px;margin-left: 12px; /* 22px */">Intense Competition</p>
+
+                  <p style="color: #313131;font-family: Abel;font-size: 16px;font-style: normal;font-weight: 400;line-height: 100%;margin-top:20px;margin-left: 12px; /* 16px */"><span style="color:blue;font-size:18px;">Challenges :-</span><br>The real estate sector in India is highly competitive, with many agents vying for clients </p>
+
+                  <p style="color: #828282;font-family: Abel;font-size: 16px;font-style: normal;font-weight: 400;line-height: 110%;margin-top:20px;margin-left: 12px; /* 17.6px */"><span style="color:green;font-size:18px;">Solution :-</span><br>Training on customer service,
+                      Sales process,Prospecting,Verified referrals. </p>
+                </div>
+
+            </div>
+
+             <div class="col-sm-4 col-md-4 col-lg-4" >
+
+                <div class="card">
+
+                  <img src="assets/img/inventory.png" width="50px" height="50px" style="margin:20px;">
+
+                  <p style="color: #313131;font-family: Abel;font-size: 22px;font-style: normal;font-weight: 400;line-height: 100%;margin-top:20px;margin-left: 12px; /* 22px */">High Inventory</p>
+
+                  <p style="color: #313131;font-family: Abel;font-size: 16px;font-style: normal;font-weight: 400;line-height: 100%;margin-top:20px;margin-left: 12px; /* 16px */"><span style="color:blue;font-size:18px;">Challenges :-</span><br>Excess inventory of unsold properties in certain areas. making it challenging for agents to close deals. </p>
+
+                  <p style="color: #828282;font-family: Abel;font-size: 16px;font-style: normal;font-weight: 400;line-height: 110%;margin-top:20px;margin-left: 12px; /* 17.6px */"><span style="color:green;font-size:18px;">Solution :-</span><br>Our agents don’t have to worry about this challenge as they will be selling projects across India with reputable and verified builders and developers.
+                 </p>
+                </div>
+
+            </div>
+
+
+             <div class="col-sm-4 col-md-4 col-lg-4" >
+
+                 <div class="card">
+                  
+                  <img src="assets/img/delay.png" width="50px" height="50px" style="margin:20px;">
+
+                  <p style="color: #313131;font-family: Abel;font-size: 22px;font-style: normal;font-weight: 400;line-height: 100%;margin-top:20px;margin-left: 12px; /* 22px */">Delayed Project Completion</p>
+
+                  <p style="color: #313131;font-family: Abel;font-size: 16px;font-style: normal;font-weight: 400;line-height: 100%;margin-top:20px;margin-left: 12px; /* 16px */"><span style="color:blue;font-size:18px;">Challenges :-</span><br> Property buyers often face delays in project completion, leading to dissatisfaction. </p>
+
+                  <p style="color: #828282;font-family: Abel;font-size: 16px;font-style: normal;font-weight: 400;line-height: 110%;margin-top:20px;margin-left: 12px; /* 17.6px */"><span style="color:green;font-size:18px;">Solution :-</span><br>Conducting due diligence on project timelines.Updating clients about potential delays</p>
+               
+                </div>
+
+            </div>
+        
 
 
             <div class="col-sm-4 col-md-4 col-lg-4" >
@@ -114,18 +554,16 @@
 
                   <img src="assets/img/market.svg" width="50px" height="50px" style="margin:20px;">
 
-                  <p style="color: #313131;font-family: Abel;font-size: 22px;font-style: normal;font-weight: 400;line-height: 100%;margin-top:20px;margin-left: 12px; /* 22px */">Market Volatility and Uncertainty.</p>
+                  <p style="color: #313131;font-family: Abel;font-size: 22px;font-style: normal;font-weight: 400;line-height: 100%;margin-top:20px;margin-left: 12px; /* 22px */">MARKET CHANGES</p>
 
-                  <p style="color: #313131;font-family: Abel;font-size: 16px;font-style: normal;font-weight: 400;line-height: 100%;margin-top:20px;margin-left: 12px; /* 16px */">Predicting property prices and market demand </p>
+                  <p style="color: #313131;font-family: Abel;font-size: 16px;font-style: normal;font-weight: 400;line-height: 100%;margin-top:20px;margin-left: 12px; /* 16px */"><span style="color:blue;font-size:18px;">Challenges :-</span><br>Predicting property prices and market demand </p>
 
-                  <p style="color: #828282;font-family: Abel;font-size: 16px;font-style: normal;font-weight: 400;line-height: 110%;margin-top:20px;margin-left: 12px; /* 17.6px */">Market research by experts.
+                  <p style="color: #828282;font-family: Abel;font-size: 16px;font-style: normal;font-weight: 400;line-height: 110%;margin-top:20px;margin-left: 12px; /* 17.6px */"><span style="color:green;font-size:18px;">Solution :-</span><br>Market research by experts.
                       Regular updates on industry trends. Diversification of projects from different parts of India to maximize the opportunities. </p>
                </div>
              
             </div>
-        
-
-        
+   
 
              <div class="col-sm-4 col-md-4 col-lg-4" >
 
@@ -137,35 +575,11 @@
 
                   <p style="color: #313131;font-family: Abel;font-size: 16px;font-style: normal;font-weight: 400;line-height: 100%;margin-top:20px;margin-left: 12px; /* 16px */">  </p>
 
-                  <p style="color: #828282;font-family: Abel;font-size: 16px;font-style: normal;font-weight: 400;line-height: 110%;margin-top:20px;margin-left: 12px; /* 17.6px */">Our system will take care of various regulatory laws and compliance requirements all over India and we ensure that you are updated with these regulations by working with legal experts so that you maintain transparent dealings to comply with all legal requirements. </p>
+                  <p style="color: #828282;font-family: Abel;font-size: 16px;font-style: normal;font-weight: 400;line-height: 110%;margin-top:20px;margin-left: 12px; /* 17.6px */"><span style="color:green;font-size:18px;">Solution :-</span><br>Our system will take care of various regulatory laws and compliance requirements all over India and we ensure that you are updated with these regulations by working with legal experts so that you maintain transparent dealings to comply with all legal requirements. </p>
                
                 </div>
 
             </div>
-
-
-
-             <div class="col-sm-4 col-md-4 col-lg-4" >
-
-                <div class="card">
-
-                  <img src="assets/img/competition.png" width="50px" height="50px" style="margin:20px;">
-
-                  <p style="color: #313131;font-family: Abel;font-size: 22px;font-style: normal;font-weight: 400;line-height: 100%;margin-top:20px;margin-left: 12px; /* 22px */">Intense Competition</p>
-
-                  <p style="color: #313131;font-family: Abel;font-size: 16px;font-style: normal;font-weight: 400;line-height: 100%;margin-top:20px;margin-left: 12px; /* 16px */">The real estate sector in India is highly competitive, with many agents vying for clients </p>
-
-                  <p style="color: #828282;font-family: Abel;font-size: 16px;font-style: normal;font-weight: 400;line-height: 110%;margin-top:20px;margin-left: 12px; /* 17.6px */">Training on customer service,
-                      Sales process,Prospecting,Verified referrals. </p>
-                </div>
-
-            </div>
-        
-
-      </div>
-       
-       <!-- Second Row -->
-       <div class="row">
 
 
             <div class="col-sm-4 col-md-4 col-lg-4" >
@@ -176,108 +590,18 @@
 
                   <p style="color: #313131;font-family: Abel;font-size: 22px;font-style: normal;font-weight: 400;line-height: 100%;margin-top:20px;margin-left: 12px; /* 22px */">Technology Adoption</p>
 
-                  <p style="color: #313131;font-family: Abel;font-size: 16px;font-style: normal;font-weight: 400;line-height: 100%;margin-top:20px;margin-left: 12px; /* 16px */">Some real estate agents may struggle with adopting and integrating technology into their operations. </p>
+                  <p style="color: #313131;font-family: Abel;font-size: 16px;font-style: normal;font-weight: 400;line-height: 100%;margin-top:20px;margin-left: 12px; /* 16px */"><span style="color:blue;font-size:18px;">Challenges :-</span><br>Some real estate agents may struggle with adopting and integrating technology into their operations. </p>
 
-                  <p style="color: #828282;font-family: Abel;font-size: 16px;font-style: normal;font-weight: 400;line-height: 110%;margin-top:20px;margin-left: 12px; /* 17.6px */">We train you on various digital tools
+                  <p style="color: #828282;font-family: Abel;font-size: 16px;font-style: normal;font-weight: 400;line-height: 110%;margin-top:20px;margin-left: 12px; /* 17.6px */"><span style="color:green;font-size:18px;">Solution :-</span><br>We train you on various digital tools
                     Virtual Project presentations will help you to streamline processes and improve efficiency
                   </p>
 
                </div>
              
             </div>
-        
-
-             <div class="col-sm-4 col-md-4 col-lg-4" >
-
-                <div class="card">
-
-                  <img src="assets/img/inventory.png" width="50px" height="50px" style="margin:20px;">
-
-                  <p style="color: #313131;font-family: Abel;font-size: 22px;font-style: normal;font-weight: 400;line-height: 100%;margin-top:20px;margin-left: 12px; /* 22px */">High Inventory</p>
-
-                  <p style="color: #313131;font-family: Abel;font-size: 16px;font-style: normal;font-weight: 400;line-height: 100%;margin-top:20px;margin-left: 12px; /* 16px */">Excess inventory of unsold properties in certain areas. making it challenging for agents to close deals. </p>
-
-                  <p style="color: #828282;font-family: Abel;font-size: 16px;font-style: normal;font-weight: 400;line-height: 110%;margin-top:20px;margin-left: 12px; /* 17.6px */">Our agents don’t have to worry about this challenge as they will be selling projects across India with reputable and verified builders and developers.
-                 </p>
-                </div>
-
-            </div>
-
-
-
-
-
-
-             <div class="col-sm-4 col-md-4 col-lg-4" >
-
-                 <div class="card">
-                  
-                  <img src="assets/img/delay.png" width="50px" height="50px" style="margin:20px;">
-
-                  <p style="color: #313131;font-family: Abel;font-size: 22px;font-style: normal;font-weight: 400;line-height: 100%;margin-top:20px;margin-left: 12px; /* 22px */">Delayed Project Completion</p>
-
-                  <p style="color: #313131;font-family: Abel;font-size: 16px;font-style: normal;font-weight: 400;line-height: 100%;margin-top:20px;margin-left: 12px; /* 16px */"> Property buyers often face delays in project completion, leading to dissatisfaction. </p>
-
-                  <p style="color: #828282;font-family: Abel;font-size: 16px;font-style: normal;font-weight: 400;line-height: 110%;margin-top:20px;margin-left: 12px; /* 17.6px */">Conducting due diligence on project timelines.Updating clients about potential delays</p>
-               
-                </div>
-
-            </div>
-        
-
-      </div>
-
-       
-
-       <!-- Third Row -->
-       <div class="row">
 
 
             <div class="col-sm-4 col-md-4 col-lg-4" >
-
-               <div class="card">
-
-                  <img src="assets/img/client.png" width="50px" height="50px" style="margin:20px;">
-
-                  <p style="color: #313131;font-family: Abel;font-size: 22px;font-style: normal;font-weight: 400;line-height: 100%;margin-top:20px;margin-left: 12px; /* 22px */">
-                  Client Expectations</p>
-
-                  <p style="color: #313131;font-family: Abel;font-size: 16px;font-style: normal;font-weight: 400;line-height: 100%;margin-top:20px;margin-left: 12px; /* 16px */">
-                  Meeting diverse client expectations can be demanding </p>
-
-                  <p style="color: #828282;font-family: Abel;font-size: 16px;font-style: normal;font-weight: 400;line-height: 110%;margin-top:20px;margin-left: 12px; /* 17.6px */">We train you on effective communication, Understanding clients needs, Providing personalized services.
-                  </p>
-
-               </div>
-             
-            </div>
-        
-
-             <div class="col-sm-4 col-md-4 col-lg-4" >
-
-                <div class="card">
-
-                  <img src="assets/img/negotiation.png" width="50px" height="50px" style="margin:20px;">
-
-                  <p style="color: #313131;font-family: Abel;font-size: 22px;font-style: normal;font-weight: 400;line-height: 100%;margin-top:20px;margin-left: 12px; /* 22px */">
-                  Negotiation Challenges</p>
-
-                  <p style="color: #313131;font-family: Abel;font-size: 16px;font-style: normal;font-weight: 400;line-height: 100%;margin-top:20px;margin-left: 12px; /* 16px */">
-                  Negotiating deals can be complex due to various factors like price, terms, and property condition </p>
-
-                  <p style="color: #828282;font-family: Abel;font-size: 16px;font-style: normal;font-weight: 400;line-height: 110%;margin-top:20px;margin-left: 12px; /* 17.6px */">
-                   Our Training on negotiation skills and understanding market dynamics will help you to achieve win-win outcomes
-                 </p>
-                </div>
-
-            </div>
-
-
-
-
-
-
-             <div class="col-sm-4 col-md-4 col-lg-4" >
 
                  <div class="card">
                   
@@ -286,17 +610,19 @@
                   <p style="color: #313131;font-family: Abel;font-size: 22px;font-style: normal;font-weight: 400;line-height: 100%;margin-top:20px;margin-left: 12px; /* 22px */">
                   Economic Factors</p>
 
-                  <p style="color: #313131;font-family: Abel;font-size: 16px;font-style: normal;font-weight: 400;line-height: 100%;margin-top:20px;margin-left: 12px; /* 16px */">
+                  <p style="color: #313131;font-family: Abel;font-size: 16px;font-style: normal;font-weight: 400;line-height: 100%;margin-top:20px;margin-left: 12px; /* 16px */"><span style="color:blue;font-size:18px;">Challenges :-</span><br>
                    Economic fluctuations can impact the real estate market. </p>
 
-                  <p style="color: #828282;font-family: Abel;font-size: 16px;font-style: normal;font-weight: 400;line-height: 110%;margin-top:20px;margin-left: 12px; /* 17.6px */">We monitor economic indicators ,Adapting to their strategies accordingly ,Offering financial advice to clients.</p>
+                  <p style="color: #828282;font-family: Abel;font-size: 16px;font-style: normal;font-weight: 400;line-height: 110%;margin-top:20px;margin-left: 12px; /* 17.6px */"><span style="color:green;font-size:18px;">Solution :-</span><br>We monitor economic indicators ,Adapting to their strategies accordingly ,Offering financial advice to clients.</p>
                
                 </div>
 
             </div>
-        
+
 
       </div>
+   
+       
 
 
 </div>
@@ -459,6 +785,51 @@
 
 
 </div>
+
+
+
+<script type="text/javascript">
+    
+    $(document).ready(function(){
+      
+     /*============================================================================
+                                    Évelym S.
+                    https://www.linkedin.com/in/evelym-santos/
+  ============================================================================*/
+
+    // Navigation
+        // Responsive Toggle Navigation =============================================
+        let menuIcon = document.querySelector('.menuIcon');
+        let nav = document.querySelector('.overlay-menu');
+
+        menuIcon.addEventListener('click', () => {
+            if (nav.style.transform != 'translateX(0%)') {
+                nav.style.transform = 'translateX(0%)';
+                nav.style.transition = 'transform 0.2s ease-out';
+            } else { 
+                nav.style.transform = 'translateX(-100%)';
+                nav.style.transition = 'transform 0.2s ease-out';
+            }
+        });
+
+
+        // Toggle Menu Icon ========================================
+        let toggleIcon = document.querySelector('.menuIcon');
+
+        toggleIcon.addEventListener('click', () => {
+            if (toggleIcon.className != 'menuIcon toggle') {
+                toggleIcon.className += ' toggle';
+            } else {
+                toggleIcon.className = 'menuIcon';
+            }
+        });
+
+
+
+
+
+    });
+</script>
 
 
 </body>
